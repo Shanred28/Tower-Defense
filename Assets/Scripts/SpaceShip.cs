@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 
 namespace TowerDefence
@@ -141,6 +141,8 @@ namespace TowerDefence
             return true;
         }
 
+
+
         /*public void AssignWeapon(TurretProperties props)
         { 
             for (int i = 0; i < m_Turrets.Length; i++) 
@@ -176,6 +178,12 @@ namespace TowerDefence
             yield return new WaitForSeconds(timer);
             m_Thrust = tempThrust;
         }*/
+
+        public void Use(EnemyAsset asset)
+        {
+            m_MaxLinearVelocity = asset.moveSpeed;
+            base.Use(asset);
+        }
     }
 }
 

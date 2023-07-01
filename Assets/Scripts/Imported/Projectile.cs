@@ -30,8 +30,8 @@ namespace TowerDefence
                 { 
                     dest.ApplyDamage(m_Damage);
 
-                    var boom = Instantiate(m_ImpactEffectPrefab);
-                    boom.transform.position = this.transform.position;
+                    //var boom = Instantiate(m_ImpactEffectPrefab);
+                    //boom.transform.position = this.transform.position;
 
                     if (IsProjectile)
                     {

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49d04ed0c76795479c0fd18cae429d1, type: 3}
+  m_Name: Ogr
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 1, b: 1, a: 1}
+  spriteScale: {x: 1, y: 1}
+  animations: {fileID: 9100000, guid: d8fc95dd1921a7a40b6cda4a0f849534, type: 2}
+  moveSpeed: 0.3
+  hp: 25
+  score: 25
+  radius: 0.5
