@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace TowerDefence
 {
@@ -6,6 +7,7 @@ namespace TowerDefence
     {
         private Path m_Path;
         private int m_PathIndex;
+        [SerializeField] private UnityEvent OnEndPath;
         public void SetPath(Path newPath)
         {
             m_Path = newPath;
@@ -21,6 +23,7 @@ namespace TowerDefence
             }
             else
             {
+                OnEndPath.Invoke();
                 Destroy(gameObject);
             }
         }

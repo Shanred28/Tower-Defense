@@ -6,6 +6,8 @@ namespace TowerDefence
     [RequireComponent(typeof(TDPatrolController))]
     public class Enemy : MonoBehaviour
     {
+        [SerializeField] private int m_Damage;
+        [SerializeField] private int m_Gold;
         public void Use(EnemyAsset asset)
         {
             var sr = transform.Find("VisualModel").GetComponent<SpriteRenderer>();
@@ -18,6 +20,19 @@ namespace TowerDefence
 
             var col = GetComponentInChildren<CircleCollider2D>();
             col.radius = asset.radius;
+
+            m_Damage = asset.damage;
+            m_Gold = asset.gold;
+        }
+
+        public void DamagePlayer()
+        {
+            TDPlayer.Instance.ReduceLife(m_Damage);
+        }
+
+        public void GivePlayerGold()
+        {
+            TDPlayer.Instance.ChangeGold(m_Gold);
         }
     }
     [CustomEditor(typeof(Enemy))]
