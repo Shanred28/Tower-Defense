@@ -373,3 +373,7 @@ FodyWeavers.xsd
 /Assets/Prefabs
 /Assets/Scenes
 /Assets/Sprite/Enemy
+/Assets/Sprite/Tower
+/Assets/Sprite
+/Assets/UnityTechnologies/ParticlePack
+/Assembly-CSharp-Editor.csproj
