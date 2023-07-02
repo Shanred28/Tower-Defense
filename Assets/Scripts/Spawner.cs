@@ -50,5 +50,10 @@ namespace TowerDefence
                
             }
         }
+
+        public void AddNumSpawn()
+        {
+           m_NumSpawns++;
+        }
     }
 }

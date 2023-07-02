@@ -6,7 +6,7 @@ namespace TowerDefence
     {
         [SerializeField] private Enemy m_EnemyPrefabs;
 
-        [SerializeField] private Path m_Path;
+        [SerializeField] public Path m_Path;
         [SerializeField] private EnemyAsset[] m_EnemyAsset;
         
 

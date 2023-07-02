@@ -7,7 +7,7 @@ namespace TowerDefence
     public class BuildSite : MonoBehaviour, IPointerDownHandler
     {
         public static event Action<Transform> OnClickEvent;
-        protected void InvokeNullEvent()
+        public static void HideBuyControl()
         {
             OnClickEvent(null);
         }

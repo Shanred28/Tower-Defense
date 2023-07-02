@@ -13,7 +13,11 @@ namespace TowerDefence
 
         [SerializeField] protected ImpactEffect m_ImpactEffectPrefab;
 
+        [SerializeField] private bool effectProjectile = false;
+
         protected float m_Timer;
+
+        [SerializeField] private bool isNotDestroy = false;
 
         protected virtual void Update()
         {
@@ -30,6 +34,11 @@ namespace TowerDefence
                 { 
                     dest.ApplyDamage(m_Damage);
 
+                    if (effectProjectile)
+                    {
+                        var target = hit.collider.transform.root.GetComponent<SpaceShip>();
+                        target.FreezeMove(1f);
+                    }
                     //var boom = Instantiate(m_ImpactEffectPrefab);
                     //boom.transform.position = this.transform.position;
 
@@ -46,7 +55,9 @@ namespace TowerDefence
                     }                      
                 }
 
-                OnProjectileLifeEnd(hit.collider, hit.point);
+                if(!isNotDestroy)
+                    OnProjectileLifeEnd(hit.collider, hit.point);
+
             }
 
             m_Timer += Time.deltaTime;

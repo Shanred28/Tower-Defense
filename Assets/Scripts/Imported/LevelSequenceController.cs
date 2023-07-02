@@ -32,7 +32,8 @@ namespace TowerDefence
 
         public void RestartLevel()
         {
-            SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
+            //SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
+            SceneManager.LoadScene(CurrentLevel);
         }
 
         public void FinishCurrentLevel(bool success)

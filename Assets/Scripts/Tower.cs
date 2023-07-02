@@ -43,13 +43,18 @@ namespace TowerDefence
             }         
         }
 
-        private static Color GismaColor = new Color(300, 0, 0, 0.3f);
-#if     UNITY_EDITOR
-        private void OnDrawGizmosSelected()
+        public void SetRadius(float radius)
         {
-            Handles.color = GismaColor;
-            Handles.DrawWireDisc (transform.position, transform.forward, m_Radius);
+            m_Radius = radius;
         }
+
+       private static Color GismaColor = new Color(300, 0, 0, 0.3f);
+#if     UNITY_EDITOR
+   private void OnDrawGizmosSelected()
+   {
+       Handles.color = GismaColor;
+       Handles.DrawWireDisc (transform.position, transform.forward, m_Radius);
+   }
 #endif
-    }
+}
 }

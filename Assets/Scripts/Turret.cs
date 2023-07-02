@@ -7,7 +7,7 @@ namespace TowerDefence
         [SerializeField] private TurretMode m_Mode;
         public TurretMode Mode => m_Mode;
 
-        [SerializeField] private TurretProperties m_TurretProperties;
+        [HideInInspector] public TurretProperties turretProperties;
 
         private float m_RefireTimer;
 
@@ -38,27 +38,27 @@ namespace TowerDefence
 
         public void Fire()
         { 
-            if(m_TurretProperties == null) return;
+            if(turretProperties == null) return;
 
             if (m_RefireTimer > 0) return;
 
             if (m_Ship)
             {
-                if (m_Ship.DrawEnergy(m_TurretProperties.EnergyUsage) == false) return;
+                if (m_Ship.DrawEnergy(turretProperties.EnergyUsage) == false) return;
 
-                if (m_Ship.DrawAmmo(m_TurretProperties.AmmoUsage) == false) return;
+                if (m_Ship.DrawAmmo(turretProperties.AmmoUsage) == false) return;
             }
            
 
-            Projectile projectile = Instantiate(m_TurretProperties.ProjectilePrefab).GetComponent<Projectile>();
+            Projectile projectile = Instantiate(turretProperties.ProjectilePrefab).GetComponent<Projectile>();
             projectile.transform.position = transform.position;
             projectile.transform.up = transform.up;
 
            // projectile.SetPerentShooter(m_Ship);
 
-            m_RefireTimer = m_TurretProperties.RateOfFire;
+            m_RefireTimer = turretProperties.RateOfFire;
 
-            m_AudioSource.PlayOneShot(m_TurretProperties.LaunchSFX);
+            m_AudioSource.PlayOneShot(turretProperties.LaunchSFX);
             
         }
 
@@ -67,7 +67,7 @@ namespace TowerDefence
             if (m_Mode != props.Mode) return;
 
             m_RefireTimer = 0;
-            m_TurretProperties = props;
+            turretProperties = props;
         }
 
         #endregion

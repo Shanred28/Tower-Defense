@@ -77,10 +77,10 @@ namespace TowerDefence
         protected void TakeDamage(int m_Damage)
         {
           m_NumLives -= m_Damage;
-            if(m_NumLives <= 0)
-                LevelSequenceController.Instance.FinishCurrentLevel(false);
-        }
-
+            if (m_NumLives <= 0)
+                //LevelSequenceController.Instance.FinishCurrentLevel(false);
+                LevelSequenceController.Instance.RestartLevel();
+        }        
     }
 }
 

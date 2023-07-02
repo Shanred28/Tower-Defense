@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df03c5bf3f911ac49b4ee6b2a5bbc370, type: 3}
-  m_Name: New Turret Properties
+  m_Name: IceArrow_01
   m_EditorClassIdentifier: 
-  m_Mode: 3
-  m_ProjectilePrefab: {fileID: 6057265660216774097, guid: 3cb2c4c1f2a0e8347941975fa45eeb36, type: 3}
-  m_RateOfFire: 0.1
+  m_Mode: 0
+  m_ProjectilePrefab: {fileID: 8525262269526748822, guid: a2ccd60db166faf4e9f3ec67feb4b1c5, type: 3}
+  m_RateOfFire: 0.4
   m_EnergyUsage: 0
   m_AmmoUsage: 0
   m_LaunchSFX: {fileID: 0}

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace TowerDefence
@@ -69,7 +70,7 @@ namespace TowerDefence
 
         private void FixedUpdate()
         {
-            UpdateRigiBody();
+               UpdateRigiBody();
         }
         #endregion
 
@@ -183,6 +184,31 @@ namespace TowerDefence
         {
             m_MaxLinearVelocity = asset.moveSpeed;
             base.Use(asset);
+        }
+
+        private bool freeze = false;
+        public void FreezeMove(float timer)
+        {
+           
+            if (!freeze)
+            {
+                if (m_Rigid != null)
+                {
+                    m_Rigid.constraints = RigidbodyConstraints2D.FreezePosition;
+                    freeze = true;
+                    StartCoroutine(WaitTimerThrust(timer));
+                }            
+            }
+            
+        }
+
+        IEnumerator WaitTimerThrust(float timer)
+        {
+            
+            yield return new WaitForSeconds(timer);
+            m_Rigid.constraints = RigidbodyConstraints2D.None;
+            freeze = false;
+          
         }
     }
 }

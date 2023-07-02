@@ -11,7 +11,10 @@ namespace TowerDefence
         [SerializeField] private Button m_ButtonBuy;
 
         [SerializeField] private Transform buildSite;
-        public Transform BuildSite { set { buildSite = value; } }
+        public void SetBuildSite(Transform value)
+        {
+            buildSite = value;
+        }
 
         private void Start()
         {
@@ -22,7 +25,7 @@ namespace TowerDefence
 
         private void GoldStatusCheck(int gold)
         {
-            if (gold > m_Tower.goldCast != m_ButtonBuy.interactable)
+            if (gold >= m_Tower.goldCast != m_ButtonBuy.interactable)
             {
                 m_ButtonBuy.interactable = !m_ButtonBuy.interactable;
                 m_Text.color = m_ButtonBuy.interactable ? Color.white : Color.red;
@@ -32,6 +35,7 @@ namespace TowerDefence
         public void Buy()
         {
             TDPlayer.Instance.TryBuild(m_Tower, buildSite);
+            BuildSite.HideBuyControl();
         }
     }
 }
