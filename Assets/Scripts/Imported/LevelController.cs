@@ -15,7 +15,7 @@ namespace TowerDefence
         [SerializeField] private int m_ReferenceTime;
         public int RefereenceTime => m_ReferenceTime;
 
-        [SerializeField] private UnityEvent m_EventLevelCompleted;
+        [SerializeField] protected UnityEvent m_EventLevelCompleted;
         private ILevelCondition[] m_Conditions;
 
         private bool m_IsLevelCompleted;
@@ -26,7 +26,7 @@ namespace TowerDefence
         [SerializeField] private float m_TimeBonusScore;
         public float TimeBonusScore => m_TimeBonusScore;
 
-        private void Start()
+        protected void Start()
         {
             m_Conditions = GetComponentsInChildren<ILevelCondition>();
         }

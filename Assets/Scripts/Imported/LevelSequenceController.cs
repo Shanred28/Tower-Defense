@@ -5,7 +5,7 @@ namespace TowerDefence
 {
     public class LevelSequenceController : SingletonBase<LevelSequenceController>
     {
-        public static string MainMenuSceneNickname = "main_menu";
+        public static string MainMenuSceneNickname = "LevelMap";
         public Episode CurrentEpisode { get; private set; }
 
         public int CurrentLevel { get; private set; }
@@ -40,8 +40,8 @@ namespace TowerDefence
         { 
             LastLevelResult = success;
             IsLevelFinish.Invoke();
-            CalculateLevelStatistic();
-           // ResultPanelController.Instance.ShowResults(LevelStatistics, success);
+            //CalculateLevelStatistic();
+            LevelResultController.Instance.Show(success);
 
         }
 

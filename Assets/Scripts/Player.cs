@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace TowerDefence
 {
@@ -8,7 +7,8 @@ namespace TowerDefence
     {
         [SerializeField] private int m_NumLives;
         public int NumLives => m_NumLives;
-        public int LivesPlayer => m_NumLives;
+        public event Action OnPlayerDead;
+
         [SerializeField] private SpaceShip m_Ship;
         [SerializeField] private GameObject m_PlayerShipPrefab;
         public SpaceShip ActiveShip => m_Ship;
@@ -77,9 +77,12 @@ namespace TowerDefence
         protected void TakeDamage(int m_Damage)
         {
           m_NumLives -= m_Damage;
+
             if (m_NumLives <= 0)
-                //LevelSequenceController.Instance.FinishCurrentLevel(false);
-                LevelSequenceController.Instance.RestartLevel();
+            {
+                m_NumLives = 0;
+                OnPlayerDead?.Invoke();
+            }              
         }        
     }
 }
