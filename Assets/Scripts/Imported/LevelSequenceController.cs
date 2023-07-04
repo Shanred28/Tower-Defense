@@ -32,8 +32,8 @@ namespace TowerDefence
 
         public void RestartLevel()
         {
-            //SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
-            SceneManager.LoadScene(CurrentLevel);
+            SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
+           
         }
 
         public void FinishCurrentLevel(bool success)
@@ -72,6 +72,11 @@ namespace TowerDefence
                 
             LevelStatistics.numkills = Player.Instance.NumKills;
             LevelStatistics.time = (int)LevelController.Instance.LevelTime;
+        }
+
+        public void ReturnMapLevel()
+        {
+            SceneManager.LoadScene(1);
         }
     }
 }

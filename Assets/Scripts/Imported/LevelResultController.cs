@@ -49,6 +49,10 @@ namespace TowerDefence
             LevelSequenceController.Instance.RestartLevel();
         }
 
+        public void ReturnMap()
+        {
+            LevelSequenceController.Instance.ReturnMapLevel();
+        }
 
         public class Stats
         {
