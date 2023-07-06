@@ -12,8 +12,8 @@ namespace TowerDefence
     public class LevelController : SingletonBase<LevelController>
     {
 
-        [SerializeField] private int m_ReferenceTime;
-        public int RefereenceTime => m_ReferenceTime;
+        [SerializeField] protected float m_ReferenceTime;
+        public float RefereenceTime => m_ReferenceTime;
 
         [SerializeField] protected UnityEvent m_EventLevelCompleted;
         private ILevelCondition[] m_Conditions;
