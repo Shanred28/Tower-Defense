@@ -4,6 +4,7 @@ namespace TowerDefence
 {
     public class Path : MonoBehaviour
     {
+        [SerializeField] public CircleArea startArea;
         [SerializeField] private AIPointPatrol[] m_Points;
         public int Lenght { get => m_Points.Length; }
 

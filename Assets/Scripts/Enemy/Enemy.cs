@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,6 +9,13 @@ namespace TowerDefence
     {
         [SerializeField] private int m_Damage;
         [SerializeField] private int m_Gold;
+
+        public event Action OnEnd;
+        private void OnDestroy()
+        {
+            OnEnd?.Invoke();
+        }
+
         public void Use(EnemyAsset asset)
         {
             var sr = transform.Find("VisualModel").GetComponent<SpriteRenderer>();

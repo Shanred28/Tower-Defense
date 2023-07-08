@@ -6,6 +6,8 @@ namespace TowerDefence
 {
     public class EnemyWave : MonoBehaviour
     {
+        public static Action<float> OnWavePrepare;
+
         [Serializable]
         private class Squad
         {
@@ -24,6 +26,7 @@ namespace TowerDefence
 
 
         [SerializeField] private float m_PrepareTime = 10f;
+        public float GetRemainingTime() { return m_PrepareTime - Time.time; }
 
         private void Awake()
         { 
@@ -41,20 +44,30 @@ namespace TowerDefence
 
         public IEnumerable<(EnemyAsset asset, int count, int pathIndex)> EnumeratorSquads()
         {
-            yield return (groups[0].suads[0].asset, groups[0].suads[0].count, 0);
+            for (int i = 0; i < groups.Length; i++)
+            {
+                foreach (var squad in groups[i].suads)
+                {
+                    yield return (squad.asset, squad.count, i);
+                }                
+            }         
         }
 
         private event Action OnWaveReady;
         public void Prepare(Action spawnEnemies)
         {
+            OnWavePrepare?.Invoke(m_PrepareTime);
             enabled = true;
             m_PrepareTime += Time.time;
             OnWaveReady += spawnEnemies;
+           
         }
-
-        internal EnemyWave PrepareNext(Action spawnEnemies)
+        [SerializeField] private EnemyWave nextWave;
+        public EnemyWave PrepareNext(Action spawnEnemies)
         {
-            return null;
+            OnWaveReady -= spawnEnemies;
+            if(nextWave)nextWave.Prepare(spawnEnemies);
+            return nextWave;
         }
     }
 }
