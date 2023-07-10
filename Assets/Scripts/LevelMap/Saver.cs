@@ -44,6 +44,7 @@ namespace TowerDefence
 
         public static void Save(string filename, T data)
         {
+            Debug.Log("save");
             var wrapper = new Saver<T>{ data = data };
             var dataString = JsonUtility.ToJson(wrapper);
             File.WriteAllText(FileHandler.Path(filename), dataString);

@@ -26,7 +26,7 @@ namespace TowerDefence
 
             LevelStatistics = new PlayerStatistics();
             LevelStatistics.Reset();
-
+             
             SceneManager.LoadScene(e.Levels[CurrentLevel]);
         }
 

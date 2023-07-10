@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0e407dc252c886499c82aa735050746, type: 3}
-  m_Name: Level_01_Episod
+  m_Name: Episode_03_03
   m_EditorClassIdentifier: 
-  m_EpisodeName: Level1
+  m_EpisodeName: Level_03_03
   m_Levels:
-  - Level_01
+  - Level_03_03
   m_PreviewImage: {fileID: 0}
