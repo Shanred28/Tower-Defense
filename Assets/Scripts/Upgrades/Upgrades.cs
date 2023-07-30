@@ -44,6 +44,19 @@ namespace TowerDefence
             }
             return 0;
         }
+
+        public static int GetTotalCoast()
+        {
+            int result = 0;
+            foreach (var upgrade in Instance.save) 
+            {
+                for (int i = 0; i < upgrade.level; i++)
+                {
+                    result += upgrade.asset.coastByLevel[i];
+                }
+            }
+            return result;
+        }
     }
 }
 
