@@ -17,17 +17,22 @@ namespace TowerDefence
                 m_Levels[drawLevel].Initialise();
                 drawLevel += 1;
 
-            }
+                for (int i = drawLevel; i < m_Levels.Length; i++)
+                {
+                    if (m_Levels[drawLevel - 1].IsComplete)
+                    {
+                        m_Levels[i].gameObject.SetActive(true);
+                    }
+                    else
+                        m_Levels[i].gameObject.SetActive(false);
+                }
 
-            for (int i = drawLevel; i < m_Levels.Length; i++)
-            {
-                m_Levels[i].gameObject.SetActive(false);
+                for (int i = 0; i < m_BranchLevels.Length; i++)
+                {
+                    m_BranchLevels[i].TryActivate();
+                }
             }
-
-            for (int i = 0; i < m_BranchLevels.Length; i++)
-            {
-                m_BranchLevels[i].TryActivate();
-            }
+   
         }
     }
 }
