@@ -5,16 +5,23 @@ namespace TowerDefence
 {
     public class BuyUpgrade : MonoBehaviour
     {
+        [SerializeField] private UpgradeAsset asset;
         [SerializeField] private Image m_UpgradeIcon;
         [SerializeField] private Text m_LeveUp;
         [SerializeField] private Text m_CoastBuy;
         [SerializeField] private Button m_BuyButton;
 
-        public void SetUpgrade(UpgradeAsset asset, int level = 1)
+        public void Initialize()
         {
             m_UpgradeIcon.sprite = asset.sprite;
-            m_LeveUp.text = level.ToString();
-            m_CoastBuy.text = asset.coastByLevel[level].ToString();
+            var savedLevel = Upgrades.GetUpgradeLevel(asset);
+            m_LeveUp.text = $"Lvl: {savedLevel + 1}";
+            m_CoastBuy.text = asset.coastByLevel[savedLevel].ToString();
+        }
+
+        public void Buy()
+        {
+            Upgrades.BuyUpgrade(asset);
         }
     }
 }
