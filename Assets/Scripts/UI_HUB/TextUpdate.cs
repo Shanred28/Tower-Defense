@@ -27,6 +27,20 @@ namespace TowerDefence
         {
             m_Text.text = num.ToString();
         }
+
+        private void OnDestroy()
+        {
+            switch (source)
+            {
+                case UpdateSource.Gold:
+                    TDPlayer.GoldUpdateSubscribeRemove(UpdateText);
+                    break;
+
+                case UpdateSource.Life:
+                    TDPlayer.LifeUpdateSubscribeRemove(UpdateText);
+                    break;
+            }
+        }
     }
 }
 

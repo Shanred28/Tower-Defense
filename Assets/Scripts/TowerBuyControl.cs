@@ -37,6 +37,11 @@ namespace TowerDefence
             TDPlayer.Instance.TryBuild(m_Tower, buildSite);
             BuildSite.HideBuyControl();
         }
+
+        private void OnDestroy()
+        {
+            TDPlayer.GoldUpdateSubscribeRemove(GoldStatusCheck);
+        }
     }
 }
 

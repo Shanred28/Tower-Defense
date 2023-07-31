@@ -33,10 +33,15 @@ namespace TowerDefence
             OnGoldUpdate(m_Gold);
         }
 
+        [SerializeField] private int m_ArmorDef;
         public void ReduceLife(int change)
         {
-            TakeDamage(change);
-            OnLifeUpdate(NumLives);
+            if (m_ArmorDef < change)
+            {
+                TakeDamage(change - m_ArmorDef);
+                OnLifeUpdate(NumLives);
+            }
+
         }
 
         [SerializeField] private Tower m_TowerPrefab;
@@ -47,15 +52,36 @@ namespace TowerDefence
             tower.GetComponentInChildren<SpriteRenderer>().sprite = towerAsset.sprite;
             tower.GetComponentInChildren<Turret>().turretProperties = towerAsset.turretProperties;
             tower.SetRadius(towerAsset.radius);
-            Destroy(buildSite.gameObject);
+            buildSite.gameObject.SetActive(false);
 
         }
         [SerializeField] private UpgradeAsset m_HealthUpgrade;
+        [SerializeField] private UpgradeAsset m_GoldStarUpgrade;
+        [SerializeField] private UpgradeAsset m_ArmorPlayer;
         private new void Awake()
         {
             base.Awake();
-            var level = Upgrades.GetUpgradeLevel(m_HealthUpgrade);
-            TakeDamage(-level * 5);
+
+            var levelHealth = Upgrades.GetUpgradeLevel(m_HealthUpgrade);
+            TakeDamage(-levelHealth * 5);
+            var levelGoldStar = Upgrades.GetUpgradeLevel(m_GoldStarUpgrade);
+            m_Gold += levelGoldStar * 5;
+            var levelArmorPlayer = Upgrades.GetUpgradeLevel(m_ArmorPlayer);
+            m_ArmorDef += levelArmorPlayer;
         }
+
+
+        public static void GoldUpdateSubscribeRemove(Action<int> action)
+        {
+
+            OnGoldUpdate -= action;
+            action(Instance.m_Gold);
+        }
+        public static void LifeUpdateSubscribeRemove(Action<int> action)
+        {
+            OnLifeUpdate -= action;
+            action(Instance.NumLives);
+        }
+
     }
 }

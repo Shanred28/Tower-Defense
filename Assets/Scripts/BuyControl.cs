@@ -17,6 +17,7 @@ namespace TowerDefence
             if (buildSite)
             {
                 var pos = Camera.main.WorldToScreenPoint(buildSite.position);
+                Debug.Log(gameObject);
                 gameObject.SetActive(true);
                 m_RTransform.anchoredPosition = pos;
             }
@@ -27,6 +28,10 @@ namespace TowerDefence
             {
                 tbc.SetBuildSite(buildSite);
             }
+        }
+        private void OnDestroy()
+        {
+            BuildSite.OnClickEvent -= MoveToBuildSite;
         }
     }
 }
