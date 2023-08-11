@@ -5,12 +5,22 @@ using UnityEngine;
 namespace TowerDefence
 {
     [RequireComponent(typeof(TDPatrolController))]
+    [RequireComponent(typeof(Destructible))]
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private int m_Damage;
         [SerializeField] private int m_Gold;
+        [SerializeField] private int m_Armor;
+
+        private Destructible m_Destructible;
 
         public event Action OnEnd;
+
+        private void Awake()
+        {
+            m_Destructible = GetComponent<Destructible>();
+        }
+
         private void OnDestroy()
         {
             OnEnd?.Invoke();
@@ -30,6 +40,7 @@ namespace TowerDefence
             col.radius = asset.radius;
 
             m_Damage = asset.damage;
+            m_Armor = asset.armor;
             m_Gold = asset.gold;
         }
 
@@ -42,6 +53,12 @@ namespace TowerDefence
         {
             TDPlayer.Instance.ChangeGold(m_Gold);
         }
+
+        public void TakeDamage(int damage)
+        {
+            m_Destructible.ApplyDamage(Mathf.Max(1,damage-m_Armor));
+        }
+
     }
     [CustomEditor(typeof(Enemy))]
     public class EnemyInspector : Editor

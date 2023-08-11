@@ -28,36 +28,11 @@ namespace TowerDefence
 
             
             if (hit)
-            { 
-                Destructible dest = hit.collider.transform.root.GetComponent<Destructible>();
-                if (dest != null && dest != m_Perent)
-                { 
-                    dest.ApplyDamage(m_Damage);
+            {
+                OnHit(hit);
 
-                    if (effectProjectile)
-                    {
-                        var target = hit.collider.transform.root.GetComponent<SpaceShip>();
-                        target.FreezeMove(1f);
-                    }
-                    //var boom = Instantiate(m_ImpactEffectPrefab);
-                    //boom.transform.position = this.transform.position;
-
-                    if (IsProjectile)
-                    {
-                        Player.Instance.AddScore(dest.ScoreValue);
-
-                        // Ѕез этих условий, если два projectile попадает в один корабль засчитываетс€ два килла. — этим правилом все работает.
-                        if (hit.collider.transform.root.TryGetComponent<SpaceShip>(out var ship) && dest.CurrentHitPoints <= m_Damage  )
-                        {
-                            if(!ship.IsDestroy)
-                                Player.Instance.AddKill();                           
-                        }
-                    }                      
-                }
-
-                if(!isNotDestroy)
+                if (!isNotDestroy)
                     OnProjectileLifeEnd(hit.collider, hit.point);
-
             }
 
             m_Timer += Time.deltaTime;
@@ -65,6 +40,16 @@ namespace TowerDefence
                 Destroy(gameObject);
 
             transform.position += new Vector3(step.x, step.y, 0);
+        }
+
+        private void OnHit(RaycastHit2D hit)
+        {
+            Enemy enemy = hit.collider.transform.root.GetComponent<Enemy>();
+
+            if (enemy != null) 
+            { 
+                enemy.TakeDamage(m_Damage);
+            }
         }
 
         protected void OnProjectileLifeEnd(Collider2D col, Vector2 pos)

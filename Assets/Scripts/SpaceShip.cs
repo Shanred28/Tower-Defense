@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -110,27 +109,6 @@ namespace TowerDefence
         private int m_CurrentAmmo;
         public int CurrentAmmo => m_CurrentAmmo;
 
-      /*  public void AddEnergy(int e)
-        {
-            m_CurrentEnergy = Mathf.Clamp(m_CurrentEnergy + e, 0, m_MaxEnergy);        
-        }
-
-        public void AddAmmo(int ammo)
-        {
-            m_CurrentAmmo = Mathf.Clamp(m_CurrentAmmo + ammo, 0, m_MaxAmmo);
-        }
-
-        private void InitOffensive()
-        {
-            m_CurrentEnergy = m_MaxEnergy;
-            m_CurrentAmmo = m_MaxAmmo;
-        }
-
-        private void UpdateEnergyRegen()
-        {
-            m_CurrentEnergy += (float)m_EnergyRegenPerSecond * Time.deltaTime;
-            m_CurrentEnergy = Mathf.Clamp(m_CurrentEnergy, 0, m_MaxEnergy);
-        }*/
 
         public bool DrawEnergy(int count)
         {
@@ -142,43 +120,6 @@ namespace TowerDefence
             return true;
         }
 
-
-
-        /*public void AssignWeapon(TurretProperties props)
-        { 
-            for (int i = 0; i < m_Turrets.Length; i++) 
-            {
-                m_Turrets[i].AssignLoadout(props);
-            }
-        }
-
-        [SerializeField] Transform visualModelSheld;
-        public void AddInvulnerability(float timer)
-        { 
-            m_Indestructible = true;
-            visualModelSheld.gameObject.SetActive(true);
-            StartCoroutine(WaitTimerInvulnerability(timer));
-
-        }
-
-        public void AddThrust(float timer, float value)
-        {
-           float tempThrust = m_Thrust;
-            m_Thrust = value;
-            StartCoroutine(WaitTimerThrust(timer, tempThrust));
-        }
-
-        IEnumerator WaitTimerInvulnerability(float timer)
-        {
-            yield return new WaitForSeconds(timer);
-            m_Indestructible = false;
-            visualModelSheld.gameObject.SetActive(false);
-        }
-        IEnumerator WaitTimerThrust(float timer, float tempThrust)
-        {
-            yield return new WaitForSeconds(timer);
-            m_Thrust = tempThrust;
-        }*/
 
         public void Use(EnemyAsset asset)
         {

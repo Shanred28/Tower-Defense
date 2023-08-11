@@ -13,6 +13,7 @@ namespace TowerDefence
         [Header("Characteristics")]
         public float moveSpeed = 1f;
         public int hp = 1;
+        public int armor = 0;
         public int score = 1;
         public float radius = 0.26f;
         public int damage = 1;
