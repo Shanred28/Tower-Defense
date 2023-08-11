@@ -11,7 +11,6 @@ namespace TowerDefence
         public TurretProperties turretProperties;
         public float radius = 3.0f;
 
-    }
-   
+    }  
 }
 

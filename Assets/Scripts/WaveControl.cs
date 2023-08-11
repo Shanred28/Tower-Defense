@@ -41,7 +41,6 @@ namespace TowerDefence
                 if (m_ModeSpawner == ContolEnemySpawner.SwithPatch)
                     SeleectPath();
 
-
             }
         }
 

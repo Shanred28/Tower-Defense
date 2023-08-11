@@ -25,38 +25,15 @@ namespace TowerDefence
             action(Instance.NumLives);
         }
 
-        [SerializeField] private int m_Gold;
-
-        public void ChangeGold(int change)
-        {
-            m_Gold += change;
-            OnGoldUpdate(m_Gold);
-        }
-
-        [SerializeField] private int m_ArmorDef;
-        public void ReduceLife(int change)
-        {
-            if (m_ArmorDef < change)
-            {
-                TakeDamage(change - m_ArmorDef);
-                OnLifeUpdate(NumLives);
-            }
-
-        }
 
         [SerializeField] private Tower m_TowerPrefab;
-        public void TryBuild(TowerAsset towerAsset, Transform buildSite)
-        {
-            ChangeGold(-towerAsset.goldCast);
-            var tower = Instantiate(m_TowerPrefab, buildSite.position, Quaternion.identity);
-            tower.Use(towerAsset);
-            tower.SetRadius(towerAsset.radius);
-            buildSite.gameObject.SetActive(false);
-
-        }
+        [SerializeField] private int m_Gold;
+        [SerializeField] private int m_ArmorDef;
         [SerializeField] private UpgradeAsset m_HealthUpgrade;
         [SerializeField] private UpgradeAsset m_GoldStarUpgrade;
         [SerializeField] private UpgradeAsset m_ArmorPlayer;
+
+
         private new void Awake()
         {
             base.Awake();
@@ -68,7 +45,6 @@ namespace TowerDefence
             var levelArmorPlayer = Upgrades.GetUpgradeLevel(m_ArmorPlayer);
             m_ArmorDef += levelArmorPlayer;
         }
-
 
         public static void GoldUpdateSubscribeRemove(Action<int> action)
         {
@@ -82,5 +58,30 @@ namespace TowerDefence
             action(Instance.NumLives);
         }
 
+
+        public void ChangeGold(int change)
+        {
+            m_Gold += change;
+            OnGoldUpdate(m_Gold);
+        }
+
+        public void ReduceLife(int change)
+        {
+            if (m_ArmorDef < change)
+            {
+                TakeDamage(change - m_ArmorDef);
+                OnLifeUpdate(NumLives);
+            }
+        }
+
+        public void TryBuild(TowerAsset towerAsset, Transform buildSite)
+        {
+            ChangeGold(-towerAsset.goldCast);
+            var tower = Instantiate(m_TowerPrefab, buildSite.position, Quaternion.identity);
+            tower.Use(towerAsset);
+            tower.SetRadius(towerAsset.radius);
+            buildSite.gameObject.SetActive(false);
+
+        }
     }
 }

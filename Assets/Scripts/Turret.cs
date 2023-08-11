@@ -54,8 +54,6 @@ namespace TowerDefence
             projectile.transform.position = transform.position;
             projectile.transform.up = transform.up;
 
-           // projectile.SetPerentShooter(m_Ship);
-
             m_RefireTimer = turretProperties.RateOfFire;
 
             m_AudioSource.PlayOneShot(turretProperties.LaunchSFX);

@@ -5,12 +5,30 @@ namespace TowerDefence
 {
     public class MapCompletion : SingletonBase<MapCompletion>
     {
-        public const string filename = "completion.dat";
         [Serializable]
         private class EpisodeScore
         {
             public Episode episode;
             public int score;
+        }
+
+        public const string filename = "completion.dat";
+        
+        [SerializeField] private EpisodeScore[] m_CompletionsData;
+        public int TotalScore { get { return m_TotalScore; } }
+
+        private int m_TotalScore;
+
+        private new void Awake()
+        {
+            base.Awake();
+
+            Saver<EpisodeScore[]>.TryLoad(filename, ref m_CompletionsData);
+
+            foreach (var episodeScore in m_CompletionsData)
+            {
+                m_TotalScore += episodeScore.score;
+            }
         }
 
         public static void SaveEpisodeResult(int levelScore)
@@ -33,26 +51,11 @@ namespace TowerDefence
                     Debug.Log("SaveResult");
                     if (levelScore > item.score)
                     {
+                        m_TotalScore += levelScore - item.score;
                         item.score = levelScore;
                         Saver<EpisodeScore[]>.Save(filename, m_CompletionsData);
                     }
                 }
-            }
-        }
-
-        [SerializeField] private EpisodeScore[] m_CompletionsData;
-
-        private int m_TotalScore;
-        public int TotalScore { get { return m_TotalScore; } }
-        private new void Awake()
-        {
-            base.Awake();
-
-            Saver<EpisodeScore[]>.TryLoad(filename, ref m_CompletionsData);
-
-            foreach (var episodeScore in m_CompletionsData)
-            {
-                m_TotalScore += episodeScore.score;
             }
         }
 

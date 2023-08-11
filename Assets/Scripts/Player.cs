@@ -12,9 +12,8 @@ namespace TowerDefence
         [SerializeField] private SpaceShip m_Ship;
         [SerializeField] private GameObject m_PlayerShipPrefab;
         public SpaceShip ActiveShip => m_Ship;
-
-       // [SerializeField] private CameraController m_CameraController;
-        //[SerializeField] private MovementController m_MovementController;
+        public int Score { get; private set; }
+        public int NumKills { get; private set; }
 
 
         protected override void Awake()
@@ -22,11 +21,6 @@ namespace TowerDefence
             base.Awake();
             if(m_Ship != null)
                 Destroy(m_Ship.gameObject);
-        }
-
-        private void Start()
-        {
-           // Respawn();
         }
 
         private void OnShipDeath()
@@ -51,17 +45,13 @@ namespace TowerDefence
 
                 m_Ship = newPlayerShip.GetComponent<SpaceShip>();
 
-               // m_CameraController.SetTarget(m_Ship.transform);
-               // m_MovementController.SetTargetShip(m_Ship);
                 m_Ship.EventOnDeath.AddListener(OnShipDeath);
             }          
         }
 
         #region Score
-        public int Score { get; private set; }
-        public int NumKills { get; private set; }
 
-        public void AddKill()
+/*        public void AddKill()
         {
             NumKills++;
         }
@@ -70,10 +60,8 @@ namespace TowerDefence
         { 
             Score += num;
         }
-
+*/
         #endregion
-
-
         protected void TakeDamage(int m_Damage)
         {
           m_NumLives -= m_Damage;

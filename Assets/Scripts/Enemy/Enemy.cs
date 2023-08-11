@@ -84,8 +84,8 @@ namespace TowerDefence
         {
             m_Destructible.ApplyDamage(ArmorDamageFunktions[(int)m_ArmorType](damage,damageType, m_Armor));
         }
-
     }
+
     [CustomEditor(typeof(Enemy))]
     public class EnemyInspector : Editor
     {
@@ -99,5 +99,4 @@ namespace TowerDefence
             }
         }
     }
-
 }

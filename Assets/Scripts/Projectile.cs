@@ -51,18 +51,6 @@ namespace TowerDefence
         { 
             Destroy(gameObject);
         }
-
-        private Destructible m_Perent;
-        private bool IsProjectile =false;
-        public void SetPerentShooter(Destructible perent)
-        {
-            m_Perent = perent;
-        }
-
-        public void SetTarget(Destructible target)
-        { 
-        
-        }
     }
 }
 
