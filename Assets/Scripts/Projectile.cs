@@ -42,14 +42,9 @@ namespace TowerDefence
             transform.position += new Vector3(step.x, step.y, 0);
         }
 
-        private void OnHit(RaycastHit2D hit)
+        protected virtual void OnHit(RaycastHit2D hit)
         {
-            Enemy enemy = hit.collider.transform.root.GetComponent<Enemy>();
 
-            if (enemy != null) 
-            { 
-                enemy.TakeDamage(m_Damage);
-            }
         }
 
         protected void OnProjectileLifeEnd(Collider2D col, Vector2 pos)

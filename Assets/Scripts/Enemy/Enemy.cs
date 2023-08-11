@@ -1,6 +1,8 @@
 using System;
 using UnityEditor;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using static TowerDefence.TDProjectile;
 
 namespace TowerDefence
 {
@@ -8,9 +10,32 @@ namespace TowerDefence
     [RequireComponent(typeof(Destructible))]
     public class Enemy : MonoBehaviour
     {
+        public enum ArmorType { Base = 0, Mage = 1 }
+        private static Func<int, DamageType, int, int>[] ArmorDamageFunktions =
+        {  //ArmorType.Base
+           (int power, DamageType type, int armor) =>
+           {
+               switch(type)
+               {
+                case DamageType.Magic: return power;
+                       default: return Mathf.Max(power - armor,1);
+               }
+           },
+
+           (int power, DamageType type, int armor) =>
+           {   //ArmorType.Magic
+               if(DamageType.Base == type)
+               {
+                  armor = armor / 2;
+               }
+               return Mathf.Max(power - armor,1);
+}          
+        };
+
         [SerializeField] private int m_Damage;
         [SerializeField] private int m_Gold;
         [SerializeField] private int m_Armor;
+        [SerializeField] private ArmorType m_ArmorType;
 
         private Destructible m_Destructible;
 
@@ -40,7 +65,8 @@ namespace TowerDefence
             col.radius = asset.radius;
 
             m_Damage = asset.damage;
-            m_Armor = asset.armor;
+            m_Armor= asset.armor;
+            m_ArmorType = asset.armorType;
             m_Gold = asset.gold;
         }
 
@@ -54,9 +80,9 @@ namespace TowerDefence
             TDPlayer.Instance.ChangeGold(m_Gold);
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, DamageType damageType)
         {
-            m_Destructible.ApplyDamage(Mathf.Max(1,damage-m_Armor));
+            m_Destructible.ApplyDamage(ArmorDamageFunktions[(int)m_ArmorType](damage,damageType, m_Armor));
         }
 
     }

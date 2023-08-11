@@ -50,7 +50,7 @@ namespace TowerDefence
             }
            
 
-            Projectile projectile = Instantiate(turretProperties.ProjectilePrefab).GetComponent<Projectile>();
+            Projectile projectile = Instantiate(turretProperties.ProjectilePrefab).GetComponent<TDProjectile>();
             projectile.transform.position = transform.position;
             projectile.transform.up = transform.up;
 

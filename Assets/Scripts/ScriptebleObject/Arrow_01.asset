@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arrow_01
   m_EditorClassIdentifier: 
   m_Mode: 3
-  m_ProjectilePrefab: {fileID: 6057265660216774097, guid: 3cb2c4c1f2a0e8347941975fa45eeb36, type: 3}
+  m_ProjectilePrefab: {fileID: 5807305969651639153, guid: 3cb2c4c1f2a0e8347941975fa45eeb36, type: 3}
   m_RateOfFire: 0.5
   m_EnergyUsage: 0
   m_AmmoUsage: 0

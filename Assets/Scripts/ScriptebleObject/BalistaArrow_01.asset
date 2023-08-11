@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BalistaArrow_01
   m_EditorClassIdentifier: 
   m_Mode: 0
-  m_ProjectilePrefab: {fileID: 8124145295888678684, guid: 1be4f082207dcc6429d610d3263261b3, type: 3}
+  m_ProjectilePrefab: {fileID: 6487674896795146934, guid: 1be4f082207dcc6429d610d3263261b3, type: 3}
   m_RateOfFire: 2
   m_EnergyUsage: 0
   m_AmmoUsage: 0

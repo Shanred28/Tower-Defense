@@ -49,8 +49,7 @@ namespace TowerDefence
         {
             ChangeGold(-towerAsset.goldCast);
             var tower = Instantiate(m_TowerPrefab, buildSite.position, Quaternion.identity);
-            tower.GetComponentInChildren<SpriteRenderer>().sprite = towerAsset.sprite;
-            tower.GetComponentInChildren<Turret>().turretProperties = towerAsset.turretProperties;
+            tower.Use(towerAsset);
             tower.SetRadius(towerAsset.radius);
             buildSite.gameObject.SetActive(false);
 

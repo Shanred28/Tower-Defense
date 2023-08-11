@@ -19,13 +19,13 @@ namespace TowerDefence
             {
                 Instance.SaveResult(LevelSequenceController.Instance.CurrentEpisode, levelScore);
             }
-                
+
             else
                 Debug.Log($"Epsidoe complete with score {levelScore}");
         }
         private void SaveResult(Episode currentEpisode, int levelScore)
         {
-            
+
             foreach (EpisodeScore item in m_CompletionsData)
             {
                 if (item.episode == currentEpisode)
@@ -43,11 +43,11 @@ namespace TowerDefence
         [SerializeField] private EpisodeScore[] m_CompletionsData;
 
         private int m_TotalScore;
-        public int  TotalScore{ get { return m_TotalScore; } } 
+        public int TotalScore { get { return m_TotalScore; } }
         private new void Awake()
         {
             base.Awake();
-           
+
             Saver<EpisodeScore[]>.TryLoad(filename, ref m_CompletionsData);
 
             foreach (var episodeScore in m_CompletionsData)

@@ -7,11 +7,16 @@ namespace TowerDefence
     {
         [SerializeField] private float m_Radius;
         private Turret[] turrets;
-        private Destructible target;
+        private Destructible target = null;
 
-        private void Start()
+        public void Use(TowerAsset asset)
         {
             turrets = GetComponentsInChildren<Turret>();
+            GetComponentInChildren<SpriteRenderer>().sprite = asset.sprite;
+            foreach (Turret t in turrets) 
+            {
+                t.AssignLoadout(asset.turretProperties);
+            }
         }
 
         private void Update()
