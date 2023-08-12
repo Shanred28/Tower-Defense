@@ -5,7 +5,8 @@ namespace TowerDefence
 {
     public partial class TowerBuyControl : MonoBehaviour
     {
-        [SerializeField] private TowerAsset m_Tower;
+        [SerializeField] private TowerAsset m_TowerAsset;
+        public void SetTowerAsset(TowerAsset asset) { m_TowerAsset = asset; }
 
         [SerializeField] private Text m_Text;
         [SerializeField] private Button m_ButtonBuy;
@@ -19,13 +20,13 @@ namespace TowerDefence
         private void Start()
         {
             TDPlayer.GoldUpdateSubscribe(GoldStatusCheck);
-            m_Text.text = m_Tower.goldCast.ToString();
-            m_ButtonBuy.GetComponent<Image>().sprite = m_Tower.GUISprite;
+            m_Text.text = m_TowerAsset.goldCast.ToString();
+            m_ButtonBuy.GetComponent<Image>().sprite = m_TowerAsset.GUISprite;
         }
 
         private void GoldStatusCheck(int gold)
         {
-            if (gold >= m_Tower.goldCast != m_ButtonBuy.interactable)
+            if (gold >= m_TowerAsset.goldCast != m_ButtonBuy.interactable)
             {
                 m_ButtonBuy.interactable = !m_ButtonBuy.interactable;
                 m_Text.color = m_ButtonBuy.interactable ? Color.white : Color.red;
@@ -34,7 +35,7 @@ namespace TowerDefence
 
         public void Buy()
         {
-            TDPlayer.Instance.TryBuild(m_Tower, buildSite);
+            TDPlayer.Instance.TryBuild(m_TowerAsset, buildSite);
             BuildSite.HideBuyControl();
         }
 

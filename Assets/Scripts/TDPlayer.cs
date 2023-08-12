@@ -32,12 +32,11 @@ namespace TowerDefence
         [SerializeField] private UpgradeAsset m_HealthUpgrade;
         [SerializeField] private UpgradeAsset m_GoldStarUpgrade;
         [SerializeField] private UpgradeAsset m_ArmorPlayer;
+        [SerializeField] private UpgradeAsset m_MageTowerUpgrade;
 
 
-        private new void Awake()
+        private void Start()
         {
-            base.Awake();
-
             var levelHealth = Upgrades.GetUpgradeLevel(m_HealthUpgrade);
             TakeDamage(-levelHealth * 5);
             var levelGoldStar = Upgrades.GetUpgradeLevel(m_GoldStarUpgrade);

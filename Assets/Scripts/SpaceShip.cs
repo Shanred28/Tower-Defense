@@ -27,7 +27,10 @@ namespace TowerDefence
         /// Maximum linear speed.
         /// </summary>
         [SerializeField] private float m_MaxLinearVelocity;
+        private float m_MaxLinearVelocityBeckup;
         public float MaxLinearVelocity => m_MaxLinearVelocity;
+        public void HalfMaxLinearVelocity() { m_MaxLinearVelocityBeckup = m_MaxLinearVelocity; m_MaxLinearVelocity /= 2; }
+        public void RestoreMaxLinearVelocity() { m_MaxLinearVelocity = m_MaxLinearVelocityBeckup; }
 
         /// <summary>
         /// Maximum rotation speed. In Degrees/Seconds.
