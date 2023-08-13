@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ArmorPlayerUpgrade
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 565af2027aa7cc84ca45b309b74a456f, type: 3}
-  coastByLevel: 0300000005000000080000000a000000
+  coastByLevel: 01000000020000000300000004000000

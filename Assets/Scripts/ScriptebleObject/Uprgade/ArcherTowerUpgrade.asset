@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f704fa7024c336541b7f0dbc4220bc50, type: 3}
-  m_Name: StartGoldUpgrade
+  m_Name: ArcherTowerUpgrade
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: a399365ca8dccba4294a60c112623473, type: 3}
-  coastByLevel: 01000000020000000300000004000000
+  sprite: {fileID: 21300000, guid: ef25b92a8e4b2644b8420de820e6c11f, type: 3}
+  coastByLevel: 0100000002000000

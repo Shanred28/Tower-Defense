@@ -49,19 +49,6 @@ namespace TowerDefence
             }          
         }
 
-        #region Score
-
-/*        public void AddKill()
-        {
-            NumKills++;
-        }
-
-        public void AddScore(int num)
-        { 
-            Score += num;
-        }
-*/
-        #endregion
         protected void TakeDamage(int m_Damage)
         {
           m_NumLives -= m_Damage;
