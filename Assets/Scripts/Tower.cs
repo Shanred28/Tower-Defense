@@ -6,8 +6,9 @@ namespace TowerDefence
     public class Tower : MonoBehaviour
     {
         [SerializeField] private float m_Radius;
+        [SerializeField] private float m_Lead;
         private Turret[] turrets;
-        private Destructible target = null;
+        private Enemy target = null;
 
         public void Use(TowerAsset asset)
         {
@@ -24,12 +25,11 @@ namespace TowerDefence
         {
             if (target)
             {
-                Vector2 targetVector = target.transform.position - transform.position;
-                if (targetVector.magnitude <= m_Radius)
+                if (Vector3.Distance(target.transform.position, transform.position)  <= m_Radius)
                 {
                     foreach (Turret turret in turrets)
                     {
-                        turret.transform.up = targetVector;
+                        turret.transform.up = target.transform.position - turret.transform.position + (Vector3)target.GetComponent<Rigidbody2D>().velocity * m_Lead;
                         turret.Fire();
                     }
                 }
@@ -44,7 +44,7 @@ namespace TowerDefence
                 var enter = Physics2D.OverlapCircle(transform.position, m_Radius);
                 if (enter)
                 {
-                    target = enter.transform.root.GetComponent<Destructible>();
+                    target = enter.transform.root.GetComponent<Enemy>();
                 }
             }         
         }
@@ -55,8 +55,9 @@ namespace TowerDefence
         }
 
        private static Color GismaColor = new Color(300, 0, 0, 0.3f);
-#if     UNITY_EDITOR
-   private void OnDrawGizmosSelected()
+
+#if UNITY_EDITOR
+        private void OnDrawGizmosSelected()
    {
        Handles.color = GismaColor;
        Handles.DrawWireDisc (transform.position, transform.forward, m_Radius);

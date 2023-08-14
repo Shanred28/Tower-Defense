@@ -13,7 +13,7 @@ namespace TowerDefence
 
         [SerializeField] protected ImpactEffect m_ImpactEffectPrefab;
 
-        [SerializeField] private bool effectProjectile = false;
+/*        [SerializeField] private bool effectProjectile = false;*/
 
         protected float m_Timer;
 
