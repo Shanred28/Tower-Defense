@@ -377,3 +377,4 @@ FodyWeavers.xsd
 /Assets/Sprite
 /Assets/UnityTechnologies/ParticlePack
 /Assembly-CSharp-Editor.csproj
+*.mp3
