@@ -11,6 +11,12 @@ namespace TowerDefence
         }
 
         [SerializeField] private DamageType m_DamageType;
+        [SerializeField] private Sound m_ShotSound = Sound.Arrow;
+
+        private void Start()
+        {
+            m_ShotSound.Play();
+        }
 
         protected override void OnHit(RaycastHit2D hit)
         {

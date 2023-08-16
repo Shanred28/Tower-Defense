@@ -1,8 +1,9 @@
 using System;
-using UnityEditor;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using static TowerDefence.TDProjectile;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace TowerDefence
 {
@@ -86,6 +87,7 @@ namespace TowerDefence
         }
     }
 
+#if UNITY_EDITOR
     [CustomEditor(typeof(Enemy))]
     public class EnemyInspector : Editor
     {
@@ -99,4 +101,5 @@ namespace TowerDefence
             }
         }
     }
+#endif
 }
