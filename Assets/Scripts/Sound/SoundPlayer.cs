@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace TowerDefence
@@ -16,6 +15,7 @@ namespace TowerDefence
             m_AudioSource = GetComponent<AudioSource>();
             Instance.m_AudioSource.clip = m_BGM;
             Instance.m_AudioSource.Play();
+            Instance.m_AudioSource.volume = 0.05f;
         }
 
         public void Play(Sound sound)

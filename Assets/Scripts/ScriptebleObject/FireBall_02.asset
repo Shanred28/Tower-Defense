@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FireBall_02
   m_EditorClassIdentifier: 
   m_Mode: 0
-  m_ProjectilePrefab: {fileID: 705025202614204514, guid: 9d354567c828b934bb4fdb7ade13cd3f, type: 3}
-  m_RateOfFire: 0.4
+  m_ProjectilePrefab: {fileID: 705025202614204514, guid: 178e59e75a819024cb5bb79198d2d6d0, type: 3}
+  m_RateOfFire: 0.5
   m_EnergyUsage: 0
   m_AmmoUsage: 0
   m_LaunchSFX: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9608e46b6f66ec419a3832151b2bf21, type: 3}
   m_Name: Balista_Tower_Grade_01
   m_EditorClassIdentifier: 
-  goldCast: 150
+  goldCast: 70
   GUISprite: {fileID: 21300000, guid: 2588dcaa7309fab4ebb69f6b537528fd, type: 3}
   sprite: {fileID: 21300000, guid: 4a7944ab0eb842e4faae5049745d7138, type: 3}
   turretProperties: {fileID: 11400000, guid: 592929ce5ee2d6f49b7a786650e431c7, type: 2}

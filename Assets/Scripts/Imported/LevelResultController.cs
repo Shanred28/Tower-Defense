@@ -13,9 +13,11 @@ namespace TowerDefence
         [SerializeField] private GameObject m_PanelFailure;
 
         [SerializeField] private Text m_LevelTime;
-        [SerializeField] private Text m_TotalPlayTime;
-        [SerializeField] private Text m_TotalScore;
-        [SerializeField] private Text m_TotalKills;
+
+        [SerializeField] private Image m_StarsTwo;
+        [SerializeField] private Image m_StarsTree;
+
+        private int m_Scorelevel;
 
         /// <summary>
         /// Показываем окошко результатов. Выставляем нужные кнопочки в зависимости от успеха.
@@ -23,13 +25,20 @@ namespace TowerDefence
         /// <param name="result"></param>
         public void Show(bool result)
         {
-           /* if (result)
-            {
-                UpdateCurrentLevelStats();
-                UpdateVisualStats();
-            }*/
-
             m_PanelSuccess?.gameObject.SetActive(result);
+            if (result)
+            {
+                switch (m_Scorelevel) 
+                { 
+                    case 2:
+                        m_StarsTwo.gameObject.SetActive(true);
+                        break;
+                    case 3:
+                        m_StarsTwo.gameObject.SetActive(true);
+                        m_StarsTree.gameObject.SetActive(true);
+                        break;
+                }
+            }
             m_PanelFailure?.gameObject.SetActive(!result);
         }
 
@@ -90,16 +99,9 @@ namespace TowerDefence
             if (timeBonus > 0)
                 TotalStats.score += timeBonus;
         }
-
-        /// <summary>
-        /// Метод обновления статов уровня.
-        /// </summary>
-        private void UpdateVisualStats()
+        public int ScoreLevel(int score)
         {
-            m_LevelTime.text = System.Convert.ToInt32(LevelController.Instance.LevelTime).ToString();
-            m_TotalScore.text = TotalStats.score.ToString();
-            m_TotalPlayTime.text = System.Convert.ToInt32(TotalStats.time).ToString();
-            m_TotalKills.text = TotalStats.numKills.ToString();
+           return m_Scorelevel = score;
         }
     }
 }

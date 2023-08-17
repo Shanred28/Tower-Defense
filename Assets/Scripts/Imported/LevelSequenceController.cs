@@ -40,7 +40,7 @@ namespace TowerDefence
         { 
             LastLevelResult = success;
             IsLevelFinish.Invoke();
-            //CalculateLevelStatistic();
+
             LevelResultController.Instance.Show(success);
 
         }
@@ -56,27 +56,14 @@ namespace TowerDefence
                 SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
         }
 
-        private void CalculateLevelStatistic()
-        {
-            float timeBonus = LevelController.Instance.RefereenceTime;
-            if (LevelController.Instance.LevelTime < timeBonus)
-            {
-                LevelStatistics.score = Player.Instance.Score * 2;
-                LevelStatistics.IsBonusScore = true;
-            }
-            else
-            {
-                LevelStatistics.score = Player.Instance.Score;
-                LevelStatistics.IsBonusScore = false;
-            }
-                
-            LevelStatistics.numkills = Player.Instance.NumKills;
-            LevelStatistics.time = (int)LevelController.Instance.LevelTime;
-        }
-
         public void ReturnMapLevel()
         {
             SceneManager.LoadScene(1);
+        }
+
+        public void ReturMainMenu()
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

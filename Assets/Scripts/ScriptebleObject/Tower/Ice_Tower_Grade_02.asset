@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9608e46b6f66ec419a3832151b2bf21, type: 3}
   m_Name: Ice_Tower_Grade_02
   m_EditorClassIdentifier: 
-  goldCast: 50
+  goldCast: 40
   GUISprite: {fileID: 21300000, guid: 5e0a01b45701d3146b662d36bc2c992b, type: 3}
   sprite: {fileID: 21300000, guid: 2f3a8db6ac0be2c4a8f748b836387737, type: 3}
-  turretProperties: {fileID: 11400000, guid: 3ac8b187147aebb4297b88b0d56bb1e5, type: 2}
+  turretProperties: {fileID: 11400000, guid: a5a979dab1e56a34d8c32a7634d17906, type: 2}
   radius: 4
   requiredUpgrade: {fileID: 11400000, guid: 865d69ccc0f7df34ab73ccc7a3f89435, type: 2}
   requiredUpgradeLevel: 2

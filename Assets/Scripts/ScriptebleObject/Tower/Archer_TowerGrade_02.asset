@@ -15,7 +15,7 @@ MonoBehaviour:
   goldCast: 15
   GUISprite: {fileID: 21300000, guid: ef25b92a8e4b2644b8420de820e6c11f, type: 3}
   sprite: {fileID: 21300000, guid: 10cf39f638136c04b9126c84dad0487d, type: 3}
-  turretProperties: {fileID: 11400000, guid: 76d82ba47ae2d96459bf04f90bad5500, type: 2}
+  turretProperties: {fileID: 11400000, guid: 4adf188947f4f6549ae3b718dd2d7f9e, type: 2}
   radius: 3
   requiredUpgrade: {fileID: 11400000, guid: b8f0f6d63413f584396114241417d542, type: 2}
   requiredUpgradeLevel: 1

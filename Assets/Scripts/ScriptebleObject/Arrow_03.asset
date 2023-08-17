@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df03c5bf3f911ac49b4ee6b2a5bbc370, type: 3}
-  m_Name: IceArrow_01
+  m_Name: Arrow_03
   m_EditorClassIdentifier: 
   m_Mode: 0
-  m_ProjectilePrefab: {fileID: 8457588898819514183, guid: a2ccd60db166faf4e9f3ec67feb4b1c5, type: 3}
-  m_RateOfFire: 0.6
+  m_ProjectilePrefab: {fileID: 5807305969651639153, guid: cdcaea2f7841eb54d8fda3f855c66771, type: 3}
+  m_RateOfFire: 0.35
   m_EnergyUsage: 0
   m_AmmoUsage: 0
   m_LaunchSFX: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9608e46b6f66ec419a3832151b2bf21, type: 3}
   m_Name: Archer_TowerGrade_01
   m_EditorClassIdentifier: 
-  goldCast: 15
+  goldCast: 10
   GUISprite: {fileID: 21300000, guid: ef25b92a8e4b2644b8420de820e6c11f, type: 3}
   sprite: {fileID: 21300000, guid: 90056d9506a700e4eaa142e92ee7a42d, type: 3}
   turretProperties: {fileID: 11400000, guid: 76d82ba47ae2d96459bf04f90bad5500, type: 2}

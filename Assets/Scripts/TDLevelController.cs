@@ -5,6 +5,7 @@ namespace TowerDefence
     public class TDLevelController : LevelController
     {
         private int m_LevelScore = 3;
+        public int LevelScore => m_LevelScore;
         
 
         private new void Start()
@@ -24,7 +25,7 @@ namespace TowerDefence
                 {
                     m_LevelScore -= 1;
                 }
-                print(m_LevelScore);
+                LevelResultController.Instance.ScoreLevel(m_LevelScore);
                 MapCompletion.SaveEpisodeResult(m_LevelScore);
             });
 

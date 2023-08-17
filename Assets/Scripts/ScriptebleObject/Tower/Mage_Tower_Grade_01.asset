@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9608e46b6f66ec419a3832151b2bf21, type: 3}
   m_Name: Mage_Tower_Grade_01
   m_EditorClassIdentifier: 
-  goldCast: 35
+  goldCast: 30
   GUISprite: {fileID: 21300000, guid: 1ff55c4a74fcf9b429b49b787ead3395, type: 3}
-  sprite: {fileID: 21300000, guid: 298636722737c4b41816506cd4bc994f, type: 3}
+  sprite: {fileID: 21300000, guid: 0c466e7c294431e46aee1535af279bfa, type: 3}
   turretProperties: {fileID: 11400000, guid: e40882ef9512ca846b91bb71f157bb98, type: 2}
   radius: 5
   requiredUpgrade: {fileID: 11400000, guid: 79397cda609b0d745923efb365037c3b, type: 2}
