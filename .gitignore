@@ -378,3 +378,8 @@ FodyWeavers.xsd
 /Assets/UnityTechnologies/ParticlePack
 /Assembly-CSharp-Editor.csproj
 *.mp3
+/Build/Build_Alfa_01
+/Build/Build_Alfa_02
+/Build/Build_Alfa_03
+/Build/Build_Alfa_04
+/Build/Build_Alfa_05
